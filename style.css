@@ -96,25 +96,45 @@ body {
   border-radius: 16px;
   text-align: center;
 }
-
 .form-group {
   display: flex;
+  align-items: stretch; /* key change */
   gap: 15px;
   width: 100%;
-  align-items: center;
-  justify-content: flex-end;
 }
 
-
-/* Form elements */
+/* inputs section */
 .input-wrapper {
-  flex: 1;
   display: flex;
   gap: 10px;
-  min-width: 0;
-  margin-right: auto;
+  flex: 1;
 }
 
+/* button container */
+.button-group {
+  display: flex;
+  gap: 12px;
+  margin-left: auto;
+  align-items: stretch;
+}
+
+/* Make inputs and buttons share identical height system */
+input,
+select,
+button {
+  height: 56px; /* unified baseline height */
+}
+
+/* ensure buttons match input baseline exactly */
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+}
+
+/* Inputs */
 input,
 select {
   flex: 1;
@@ -141,6 +161,7 @@ select:focus {
   box-shadow: 0 0 0 4px rgba(0, 113, 197, 0.15);
 }
 
+/* Buttons */
 button {
   background-color: #0071c5;
   color: white;
@@ -167,21 +188,17 @@ button:hover {
 
 #checkInBtn {
   flex-shrink: 0;
-  white-space: nowrap;
 }
 
 #resetBtn {
   background: #dc2626;
+  flex-shrink: 0;
 }
 
 #resetBtn:hover {
   background: #b91c1c;
 }
 
-#checkInBtn,
-#resetBtn {
-  flex-shrink: 0;
-}
 /* Icon spacing */
 .fas {
   margin-right: 8px;
@@ -407,13 +424,13 @@ button .fas {
     flex-direction: column;
   }
 
-  input,
-  select,
-  button {
+  .button-group {
+    margin-left: 0;
     width: 100%;
   }
 
   button {
+    width: 100%;
     height: 50px;
   }
 
@@ -426,4 +443,3 @@ button .fas {
     align-items: flex-start;
   }
 }
-
